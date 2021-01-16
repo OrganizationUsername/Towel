@@ -1,0 +1,2195 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Benchmarks </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Benchmarks ">
+    <meta name="generator" content="docfx 2.56.6.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="benchmarks">Benchmarks</h1>
+
+<p><a href="https://github.com/ZacharyPatten/Towel" alt="Github Repository"><img alt="github repo" src="https://img.shields.io/badge/github-repo-black?logo=github&amp;style=flat" title="Go To Github Repo" alt="Github Repository"></a></p>
+<p>The source code for all becnhmarks are in <a href="https://github.com/ZacharyPatten/Towel/tree/master/Tools/Towel_Benchmarking">Tools/Towel.Benchmarking</a>.</p>
+<h1 id="sorting-algorithms">Sorting Algorithms</h1>
+<p>The source code for all becnhmarks are in <a href="https://github.com/ZacharyPatten/Towel/tree/master/Tools/Towel_Benchmarking">Tools/Towel.Benchmarking</a>.</p>
+<pre><code class="lang-ini">
+BenchmarkDotNet=v0.12.1, OS=Windows 10.0.18363.1316 (1909/November2018Update/19H2)
+Intel Core i7-4790K CPU 4.00GHz (Haswell), 1 CPU, 8 logical and 4 physical cores
+.NET Core SDK=5.0.102
+  [Host]     : .NET Core 5.0.2 (CoreCLR 5.0.220.61120, CoreFX 5.0.220.61120), X64 RyuJIT
+  Job-APNGAA : .NET Core 5.0.2 (CoreCLR 5.0.220.61120, CoreFX 5.0.220.61120), X64 RyuJIT
+
+InvocationCount=1  UnrollFactor=1  
+
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>N</th>
+<th style="text-align: right;">Mean</th>
+<th style="text-align: right;">Error</th>
+<th style="text-align: right;">StdDev</th>
+<th style="text-align: right;">Median</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>SystemArraySort</strong></td>
+<td><strong>10</strong></td>
+<td style="text-align: right;"><strong>361.5 ns</strong></td>
+<td style="text-align: right;"><strong>18.39 ns</strong></td>
+<td style="text-align: right;"><strong>53.05 ns</strong></td>
+<td style="text-align: right;"><strong>400.0 ns</strong></td>
+</tr>
+<tr>
+<td>SystemArraySortDelegate</td>
+<td>10</td>
+<td style="text-align: right;">650.0 ns</td>
+<td style="text-align: right;">0.00 ns</td>
+<td style="text-align: right;">0.00 ns</td>
+<td style="text-align: right;">650.0 ns</td>
+</tr>
+<tr>
+<td>SystemArraySortIComparer</td>
+<td>10</td>
+<td style="text-align: right;">3,025.0 ns</td>
+<td style="text-align: right;">63.19 ns</td>
+<td style="text-align: right;">98.37 ns</td>
+<td style="text-align: right;">3,000.0 ns</td>
+</tr>
+<tr>
+<td>BubbleRunTime</td>
+<td>10</td>
+<td style="text-align: right;">1,833.3 ns</td>
+<td style="text-align: right;">44.45 ns</td>
+<td style="text-align: right;">121.68 ns</td>
+<td style="text-align: right;">1,800.0 ns</td>
+</tr>
+<tr>
+<td>BubbleCompileTime</td>
+<td>10</td>
+<td style="text-align: right;">379.2 ns</td>
+<td style="text-align: right;">14.15 ns</td>
+<td style="text-align: right;">40.82 ns</td>
+<td style="text-align: right;">400.0 ns</td>
+</tr>
+<tr>
+<td>SelectionRunTime</td>
+<td>10</td>
+<td style="text-align: right;">1,472.5 ns</td>
+<td style="text-align: right;">41.88 ns</td>
+<td style="text-align: right;">117.44 ns</td>
+<td style="text-align: right;">1,400.0 ns</td>
+</tr>
+<tr>
+<td>SelectionCompileTime</td>
+<td>10</td>
+<td style="text-align: right;">355.0 ns</td>
+<td style="text-align: right;">18.28 ns</td>
+<td style="text-align: right;">53.89 ns</td>
+<td style="text-align: right;">400.0 ns</td>
+</tr>
+<tr>
+<td>InsertionRunTime</td>
+<td>10</td>
+<td style="text-align: right;">1,410.4 ns</td>
+<td style="text-align: right;">32.01 ns</td>
+<td style="text-align: right;">82.05 ns</td>
+<td style="text-align: right;">1,400.0 ns</td>
+</tr>
+<tr>
+<td>InsertionCompileTime</td>
+<td>10</td>
+<td style="text-align: right;">234.7 ns</td>
+<td style="text-align: right;">20.36 ns</td>
+<td style="text-align: right;">59.38 ns</td>
+<td style="text-align: right;">200.0 ns</td>
+</tr>
+<tr>
+<td>QuickRunTime</td>
+<td>10</td>
+<td style="text-align: right;">1,748.9 ns</td>
+<td style="text-align: right;">36.84 ns</td>
+<td style="text-align: right;">71.85 ns</td>
+<td style="text-align: right;">1,700.0 ns</td>
+</tr>
+<tr>
+<td>QuickCompileTime</td>
+<td>10</td>
+<td style="text-align: right;">549.5 ns</td>
+<td style="text-align: right;">21.99 ns</td>
+<td style="text-align: right;">64.48 ns</td>
+<td style="text-align: right;">500.0 ns</td>
+</tr>
+<tr>
+<td>MergeRunTime</td>
+<td>10</td>
+<td style="text-align: right;">1,681.6 ns</td>
+<td style="text-align: right;">37.59 ns</td>
+<td style="text-align: right;">102.90 ns</td>
+<td style="text-align: right;">1,700.0 ns</td>
+</tr>
+<tr>
+<td>MergeCompileTime</td>
+<td>10</td>
+<td style="text-align: right;">1,296.6 ns</td>
+<td style="text-align: right;">32.39 ns</td>
+<td style="text-align: right;">89.76 ns</td>
+<td style="text-align: right;">1,300.0 ns</td>
+</tr>
+<tr>
+<td>HeapRunTime</td>
+<td>10</td>
+<td style="text-align: right;">2,502.2 ns</td>
+<td style="text-align: right;">51.95 ns</td>
+<td style="text-align: right;">98.83 ns</td>
+<td style="text-align: right;">2,500.0 ns</td>
+</tr>
+<tr>
+<td>HeapCompileTime</td>
+<td>10</td>
+<td style="text-align: right;">1,429.7 ns</td>
+<td style="text-align: right;">32.32 ns</td>
+<td style="text-align: right;">74.92 ns</td>
+<td style="text-align: right;">1,400.0 ns</td>
+</tr>
+<tr>
+<td>OddEvenRunTime</td>
+<td>10</td>
+<td style="text-align: right;">1,510.0 ns</td>
+<td style="text-align: right;">33.55 ns</td>
+<td style="text-align: right;">67.76 ns</td>
+<td style="text-align: right;">1,500.0 ns</td>
+</tr>
+<tr>
+<td>OddEvenCompileTime</td>
+<td>10</td>
+<td style="text-align: right;">300.0 ns</td>
+<td style="text-align: right;">0.00 ns</td>
+<td style="text-align: right;">0.00 ns</td>
+<td style="text-align: right;">300.0 ns</td>
+</tr>
+<tr>
+<td>GnomeRunTime</td>
+<td>10</td>
+<td style="text-align: right;">1,626.0 ns</td>
+<td style="text-align: right;">35.80 ns</td>
+<td style="text-align: right;">72.31 ns</td>
+<td style="text-align: right;">1,600.0 ns</td>
+</tr>
+<tr>
+<td>GnomeCompileTime</td>
+<td>10</td>
+<td style="text-align: right;">410.0 ns</td>
+<td style="text-align: right;">18.67 ns</td>
+<td style="text-align: right;">55.05 ns</td>
+<td style="text-align: right;">450.0 ns</td>
+</tr>
+<tr>
+<td>CombRunTime</td>
+<td>10</td>
+<td style="text-align: right;">1,462.2 ns</td>
+<td style="text-align: right;">35.09 ns</td>
+<td style="text-align: right;">97.82 ns</td>
+<td style="text-align: right;">1,400.0 ns</td>
+</tr>
+<tr>
+<td>CombCompileTime</td>
+<td>10</td>
+<td style="text-align: right;">290.6 ns</td>
+<td style="text-align: right;">10.86 ns</td>
+<td style="text-align: right;">29.37 ns</td>
+<td style="text-align: right;">300.0 ns</td>
+</tr>
+<tr>
+<td>ShellRunTime</td>
+<td>10</td>
+<td style="text-align: right;">1,374.1 ns</td>
+<td style="text-align: right;">31.42 ns</td>
+<td style="text-align: right;">68.98 ns</td>
+<td style="text-align: right;">1,400.0 ns</td>
+</tr>
+<tr>
+<td>ShellCompileTime</td>
+<td>10</td>
+<td style="text-align: right;">1,134.5 ns</td>
+<td style="text-align: right;">25.42 ns</td>
+<td style="text-align: right;">69.60 ns</td>
+<td style="text-align: right;">1,100.0 ns</td>
+</tr>
+<tr>
+<td>CocktailRunTime</td>
+<td>10</td>
+<td style="text-align: right;">1,677.9 ns</td>
+<td style="text-align: right;">37.14 ns</td>
+<td style="text-align: right;">101.05 ns</td>
+<td style="text-align: right;">1,700.0 ns</td>
+</tr>
+<tr>
+<td>CocktailCompileTime</td>
+<td>10</td>
+<td style="text-align: right;">400.0 ns</td>
+<td style="text-align: right;">0.00 ns</td>
+<td style="text-align: right;">0.00 ns</td>
+<td style="text-align: right;">400.0 ns</td>
+</tr>
+<tr>
+<td>CycleRunTime</td>
+<td>10</td>
+<td style="text-align: right;">2,204.9 ns</td>
+<td style="text-align: right;">47.95 ns</td>
+<td style="text-align: right;">86.46 ns</td>
+<td style="text-align: right;">2,200.0 ns</td>
+</tr>
+<tr>
+<td>CycleCompileTime</td>
+<td>10</td>
+<td style="text-align: right;">576.4 ns</td>
+<td style="text-align: right;">16.34 ns</td>
+<td style="text-align: right;">45.28 ns</td>
+<td style="text-align: right;">600.0 ns</td>
+</tr>
+<tr>
+<td>PancakeRunTime</td>
+<td>10</td>
+<td style="text-align: right;">1,765.7 ns</td>
+<td style="text-align: right;">38.90 ns</td>
+<td style="text-align: right;">63.91 ns</td>
+<td style="text-align: right;">1,800.0 ns</td>
+</tr>
+<tr>
+<td>PancakeCompileTime</td>
+<td>10</td>
+<td style="text-align: right;">700.0 ns</td>
+<td style="text-align: right;">0.00 ns</td>
+<td style="text-align: right;">0.00 ns</td>
+<td style="text-align: right;">700.0 ns</td>
+</tr>
+<tr>
+<td>StoogeRunTime</td>
+<td>10</td>
+<td style="text-align: right;">12,325.5 ns</td>
+<td style="text-align: right;">1,062.16 ns</td>
+<td style="text-align: right;">3,098.36 ns</td>
+<td style="text-align: right;">10,200.0 ns</td>
+</tr>
+<tr>
+<td>StoogeCompileTime</td>
+<td>10</td>
+<td style="text-align: right;">8,413.3 ns</td>
+<td style="text-align: right;">105.88 ns</td>
+<td style="text-align: right;">99.04 ns</td>
+<td style="text-align: right;">8,400.0 ns</td>
+</tr>
+<tr>
+<td>SlowRunTime</td>
+<td>10</td>
+<td style="text-align: right;">3,956.8 ns</td>
+<td style="text-align: right;">80.39 ns</td>
+<td style="text-align: right;">136.51 ns</td>
+<td style="text-align: right;">4,000.0 ns</td>
+</tr>
+<tr>
+<td>SlowCompileTime</td>
+<td>10</td>
+<td style="text-align: right;">2,770.6 ns</td>
+<td style="text-align: right;">58.11 ns</td>
+<td style="text-align: right;">93.84 ns</td>
+<td style="text-align: right;">2,800.0 ns</td>
+</tr>
+<tr>
+<td>BogoRunTime</td>
+<td>10</td>
+<td style="text-align: right;">471,579,735.4 ns</td>
+<td style="text-align: right;">156,142,568.21 ns</td>
+<td style="text-align: right;">457,939,123.26 ns</td>
+<td style="text-align: right;">268,604,300.0 ns</td>
+</tr>
+<tr>
+<td>BogoCompileTime</td>
+<td>10</td>
+<td style="text-align: right;">389,693,315.8 ns</td>
+<td style="text-align: right;">111,798,124.96 ns</td>
+<td style="text-align: right;">320,769,777.77 ns</td>
+<td style="text-align: right;">310,239,500.0 ns</td>
+</tr>
+<tr>
+<td><strong>SystemArraySort</strong></td>
+<td><strong>1000</strong></td>
+<td style="text-align: right;"><strong>27,676.9 ns</strong></td>
+<td style="text-align: right;"><strong>434.96 ns</strong></td>
+<td style="text-align: right;"><strong>363.21 ns</strong></td>
+<td style="text-align: right;"><strong>27,700.0 ns</strong></td>
+</tr>
+<tr>
+<td>SystemArraySortDelegate</td>
+<td>1000</td>
+<td style="text-align: right;">64,407.7 ns</td>
+<td style="text-align: right;">287.00 ns</td>
+<td style="text-align: right;">239.66 ns</td>
+<td style="text-align: right;">64,400.0 ns</td>
+</tr>
+<tr>
+<td>SystemArraySortIComparer</td>
+<td>1000</td>
+<td style="text-align: right;">90,613.0 ns</td>
+<td style="text-align: right;">4,654.38 ns</td>
+<td style="text-align: right;">13,723.55 ns</td>
+<td style="text-align: right;">93,750.0 ns</td>
+</tr>
+<tr>
+<td>BubbleRunTime</td>
+<td>1000</td>
+<td style="text-align: right;">5,568,454.5 ns</td>
+<td style="text-align: right;">432,065.66 ns</td>
+<td style="text-align: right;">1,267,173.78 ns</td>
+<td style="text-align: right;">5,756,900.0 ns</td>
+</tr>
+<tr>
+<td>BubbleCompileTime</td>
+<td>1000</td>
+<td style="text-align: right;">1,438,161.5 ns</td>
+<td style="text-align: right;">26,210.65 ns</td>
+<td style="text-align: right;">21,887.08 ns</td>
+<td style="text-align: right;">1,429,000.0 ns</td>
+</tr>
+<tr>
+<td>SelectionRunTime</td>
+<td>1000</td>
+<td style="text-align: right;">2,880,250.0 ns</td>
+<td style="text-align: right;">56,813.37 ns</td>
+<td style="text-align: right;">69,771.92 ns</td>
+<td style="text-align: right;">2,861,850.0 ns</td>
+</tr>
+<tr>
+<td>SelectionCompileTime</td>
+<td>1000</td>
+<td style="text-align: right;">720,196.9 ns</td>
+<td style="text-align: right;">21,590.08 ns</td>
+<td style="text-align: right;">62,292.33 ns</td>
+<td style="text-align: right;">738,000.0 ns</td>
+</tr>
+<tr>
+<td>InsertionRunTime</td>
+<td>1000</td>
+<td style="text-align: right;">1,394,435.0 ns</td>
+<td style="text-align: right;">27,274.11 ns</td>
+<td style="text-align: right;">31,408.90 ns</td>
+<td style="text-align: right;">1,387,800.0 ns</td>
+</tr>
+<tr>
+<td>InsertionCompileTime</td>
+<td>1000</td>
+<td style="text-align: right;">260,537.2 ns</td>
+<td style="text-align: right;">8,233.71 ns</td>
+<td style="text-align: right;">23,491.23 ns</td>
+<td style="text-align: right;">252,500.0 ns</td>
+</tr>
+<tr>
+<td>QuickRunTime</td>
+<td>1000</td>
+<td style="text-align: right;">142,171.4 ns</td>
+<td style="text-align: right;">2,756.26 ns</td>
+<td style="text-align: right;">3,952.95 ns</td>
+<td style="text-align: right;">140,900.0 ns</td>
+</tr>
+<tr>
+<td>QuickCompileTime</td>
+<td>1000</td>
+<td style="text-align: right;">62,207.7 ns</td>
+<td style="text-align: right;">1,220.73 ns</td>
+<td style="text-align: right;">1,019.36 ns</td>
+<td style="text-align: right;">62,100.0 ns</td>
+</tr>
+<tr>
+<td>MergeRunTime</td>
+<td>1000</td>
+<td style="text-align: right;">108,796.6 ns</td>
+<td style="text-align: right;">3,646.37 ns</td>
+<td style="text-align: right;">9,981.88 ns</td>
+<td style="text-align: right;">106,900.0 ns</td>
+</tr>
+<tr>
+<td>MergeCompileTime</td>
+<td>1000</td>
+<td style="text-align: right;">62,541.3 ns</td>
+<td style="text-align: right;">1,706.73 ns</td>
+<td style="text-align: right;">4,813.86 ns</td>
+<td style="text-align: right;">61,200.0 ns</td>
+</tr>
+<tr>
+<td>HeapRunTime</td>
+<td>1000</td>
+<td style="text-align: right;">315,691.4 ns</td>
+<td style="text-align: right;">7,214.62 ns</td>
+<td style="text-align: right;">20,466.69 ns</td>
+<td style="text-align: right;">307,200.0 ns</td>
+</tr>
+<tr>
+<td>HeapCompileTime</td>
+<td>1000</td>
+<td style="text-align: right;">285,116.7 ns</td>
+<td style="text-align: right;">5,690.86 ns</td>
+<td style="text-align: right;">12,728.42 ns</td>
+<td style="text-align: right;">282,850.0 ns</td>
+</tr>
+<tr>
+<td>OddEvenRunTime</td>
+<td>1000</td>
+<td style="text-align: right;">2,813,612.0 ns</td>
+<td style="text-align: right;">230,424.48 ns</td>
+<td style="text-align: right;">679,411.79 ns</td>
+<td style="text-align: right;">3,103,400.0 ns</td>
+</tr>
+<tr>
+<td>OddEvenCompileTime</td>
+<td>1000</td>
+<td style="text-align: right;">811,844.2 ns</td>
+<td style="text-align: right;">18,519.08 ns</td>
+<td style="text-align: right;">53,134.71 ns</td>
+<td style="text-align: right;">796,600.0 ns</td>
+</tr>
+<tr>
+<td>GnomeRunTime</td>
+<td>1000</td>
+<td style="text-align: right;">3,015,538.5 ns</td>
+<td style="text-align: right;">54,837.75 ns</td>
+<td style="text-align: right;">113,249.47 ns</td>
+<td style="text-align: right;">2,980,250.0 ns</td>
+</tr>
+<tr>
+<td>GnomeCompileTime</td>
+<td>1000</td>
+<td style="text-align: right;">627,844.4 ns</td>
+<td style="text-align: right;">12,464.12 ns</td>
+<td style="text-align: right;">34,744.99 ns</td>
+<td style="text-align: right;">618,800.0 ns</td>
+</tr>
+<tr>
+<td>CombRunTime</td>
+<td>1000</td>
+<td style="text-align: right;">166,465.0 ns</td>
+<td style="text-align: right;">3,288.01 ns</td>
+<td style="text-align: right;">7,354.11 ns</td>
+<td style="text-align: right;">163,450.0 ns</td>
+</tr>
+<tr>
+<td>CombCompileTime</td>
+<td>1000</td>
+<td style="text-align: right;">52,878.6 ns</td>
+<td style="text-align: right;">262.43 ns</td>
+<td style="text-align: right;">232.64 ns</td>
+<td style="text-align: right;">52,850.0 ns</td>
+</tr>
+<tr>
+<td>ShellRunTime</td>
+<td>1000</td>
+<td style="text-align: right;">115,482.1 ns</td>
+<td style="text-align: right;">2,234.65 ns</td>
+<td style="text-align: right;">3,204.86 ns</td>
+<td style="text-align: right;">114,150.0 ns</td>
+</tr>
+<tr>
+<td>ShellCompileTime</td>
+<td>1000</td>
+<td style="text-align: right;">51,588.5 ns</td>
+<td style="text-align: right;">627.12 ns</td>
+<td style="text-align: right;">523.67 ns</td>
+<td style="text-align: right;">51,850.0 ns</td>
+</tr>
+<tr>
+<td>CocktailRunTime</td>
+<td>1000</td>
+<td style="text-align: right;">2,987,832.0 ns</td>
+<td style="text-align: right;">241,433.75 ns</td>
+<td style="text-align: right;">711,872.86 ns</td>
+<td style="text-align: right;">3,359,300.0 ns</td>
+</tr>
+<tr>
+<td>CocktailCompileTime</td>
+<td>1000</td>
+<td style="text-align: right;">1,051,884.9 ns</td>
+<td style="text-align: right;">20,811.97 ns</td>
+<td style="text-align: right;">43,442.34 ns</td>
+<td style="text-align: right;">1,049,300.0 ns</td>
+</tr>
+<tr>
+<td>CycleRunTime</td>
+<td>1000</td>
+<td style="text-align: right;">6,778,753.8 ns</td>
+<td style="text-align: right;">174,333.88 ns</td>
+<td style="text-align: right;">456,201.38 ns</td>
+<td style="text-align: right;">6,663,000.0 ns</td>
+</tr>
+<tr>
+<td>CycleCompileTime</td>
+<td>1000</td>
+<td style="text-align: right;">2,299,450.0 ns</td>
+<td style="text-align: right;">45,579.02 ns</td>
+<td style="text-align: right;">89,968.55 ns</td>
+<td style="text-align: right;">2,305,450.0 ns</td>
+</tr>
+<tr>
+<td>PancakeRunTime</td>
+<td>1000</td>
+<td style="text-align: right;">3,092,948.5 ns</td>
+<td style="text-align: right;">60,638.32 ns</td>
+<td style="text-align: right;">96,178.80 ns</td>
+<td style="text-align: right;">3,062,400.0 ns</td>
+</tr>
+<tr>
+<td>PancakeCompileTime</td>
+<td>1000</td>
+<td style="text-align: right;">534,353.2 ns</td>
+<td style="text-align: right;">14,298.37 ns</td>
+<td style="text-align: right;">40,794.06 ns</td>
+<td style="text-align: right;">523,100.0 ns</td>
+</tr>
+<tr>
+<td>StoogeRunTime</td>
+<td>1000</td>
+<td style="text-align: right;">459,306,675.3 ns</td>
+<td style="text-align: right;">16,162,919.46 ns</td>
+<td style="text-align: right;">46,891,560.08 ns</td>
+<td style="text-align: right;">439,382,300.0 ns</td>
+</tr>
+<tr>
+<td>StoogeCompileTime</td>
+<td>1000</td>
+<td style="text-align: right;">276,878,284.2 ns</td>
+<td style="text-align: right;">5,523,138.57 ns</td>
+<td style="text-align: right;">6,138,953.89 ns</td>
+<td style="text-align: right;">274,912,200.0 ns</td>
+</tr>
+<tr>
+<td>SlowRunTime</td>
+<td>1000</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>SlowCompileTime</td>
+<td>1000</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>BogoRunTime</td>
+<td>1000</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>BogoCompileTime</td>
+<td>1000</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td><strong>SystemArraySort</strong></td>
+<td><strong>10000</strong></td>
+<td style="text-align: right;"><strong>373,387.9 ns</strong></td>
+<td style="text-align: right;"><strong>7,434.74 ns</strong></td>
+<td style="text-align: right;"><strong>11,792.28 ns</strong></td>
+<td style="text-align: right;"><strong>365,200.0 ns</strong></td>
+</tr>
+<tr>
+<td>SystemArraySortDelegate</td>
+<td>10000</td>
+<td style="text-align: right;">875,882.2 ns</td>
+<td style="text-align: right;">17,416.91 ns</td>
+<td style="text-align: right;">33,137.48 ns</td>
+<td style="text-align: right;">869,500.0 ns</td>
+</tr>
+<tr>
+<td>SystemArraySortIComparer</td>
+<td>10000</td>
+<td style="text-align: right;">997,991.8 ns</td>
+<td style="text-align: right;">19,859.10 ns</td>
+<td style="text-align: right;">39,660.77 ns</td>
+<td style="text-align: right;">996,400.0 ns</td>
+</tr>
+<tr>
+<td>BubbleRunTime</td>
+<td>10000</td>
+<td style="text-align: right;">446,263,627.8 ns</td>
+<td style="text-align: right;">8,428,210.82 ns</td>
+<td style="text-align: right;">9,018,091.15 ns</td>
+<td style="text-align: right;">445,007,900.0 ns</td>
+</tr>
+<tr>
+<td>BubbleCompileTime</td>
+<td>10000</td>
+<td style="text-align: right;">195,086,021.0 ns</td>
+<td style="text-align: right;">6,107,351.57 ns</td>
+<td style="text-align: right;">18,007,663.89 ns</td>
+<td style="text-align: right;">188,378,750.0 ns</td>
+</tr>
+<tr>
+<td>SelectionRunTime</td>
+<td>10000</td>
+<td style="text-align: right;">211,935,802.2 ns</td>
+<td style="text-align: right;">5,553,537.49 ns</td>
+<td style="text-align: right;">15,754,461.50 ns</td>
+<td style="text-align: right;">208,347,000.0 ns</td>
+</tr>
+<tr>
+<td>SelectionCompileTime</td>
+<td>10000</td>
+<td style="text-align: right;">73,739,130.0 ns</td>
+<td style="text-align: right;">1,471,849.53 ns</td>
+<td style="text-align: right;">2,973,208.63 ns</td>
+<td style="text-align: right;">73,969,500.0 ns</td>
+</tr>
+<tr>
+<td>InsertionRunTime</td>
+<td>10000</td>
+<td style="text-align: right;">97,344,313.5 ns</td>
+<td style="text-align: right;">1,931,626.74 ns</td>
+<td style="text-align: right;">3,989,144.18 ns</td>
+<td style="text-align: right;">96,730,100.0 ns</td>
+</tr>
+<tr>
+<td>InsertionCompileTime</td>
+<td>10000</td>
+<td style="text-align: right;">26,845,495.8 ns</td>
+<td style="text-align: right;">1,231,789.45 ns</td>
+<td style="text-align: right;">3,534,234.82 ns</td>
+<td style="text-align: right;">25,305,300.0 ns</td>
+</tr>
+<tr>
+<td>QuickRunTime</td>
+<td>10000</td>
+<td style="text-align: right;">1,895,021.4 ns</td>
+<td style="text-align: right;">35,045.68 ns</td>
+<td style="text-align: right;">31,067.08 ns</td>
+<td style="text-align: right;">1,882,750.0 ns</td>
+</tr>
+<tr>
+<td>QuickCompileTime</td>
+<td>10000</td>
+<td style="text-align: right;">1,049,131.1 ns</td>
+<td style="text-align: right;">39,233.40 ns</td>
+<td style="text-align: right;">109,367.03 ns</td>
+<td style="text-align: right;">1,060,750.0 ns</td>
+</tr>
+<tr>
+<td>MergeRunTime</td>
+<td>10000</td>
+<td style="text-align: right;">1,676,502.0 ns</td>
+<td style="text-align: right;">136,119.72 ns</td>
+<td style="text-align: right;">401,352.06 ns</td>
+<td style="text-align: right;">1,657,500.0 ns</td>
+</tr>
+<tr>
+<td>MergeCompileTime</td>
+<td>10000</td>
+<td style="text-align: right;">1,128,268.1 ns</td>
+<td style="text-align: right;">24,371.72 ns</td>
+<td style="text-align: right;">68,340.92 ns</td>
+<td style="text-align: right;">1,105,900.0 ns</td>
+</tr>
+<tr>
+<td>HeapRunTime</td>
+<td>10000</td>
+<td style="text-align: right;">3,836,647.0 ns</td>
+<td style="text-align: right;">497,381.64 ns</td>
+<td style="text-align: right;">1,466,540.99 ns</td>
+<td style="text-align: right;">4,258,950.0 ns</td>
+</tr>
+<tr>
+<td>HeapCompileTime</td>
+<td>10000</td>
+<td style="text-align: right;">2,772,555.0 ns</td>
+<td style="text-align: right;">481,026.84 ns</td>
+<td style="text-align: right;">1,418,318.50 ns</td>
+<td style="text-align: right;">3,730,000.0 ns</td>
+</tr>
+<tr>
+<td>OddEvenRunTime</td>
+<td>10000</td>
+<td style="text-align: right;">228,736,897.6 ns</td>
+<td style="text-align: right;">4,496,898.15 ns</td>
+<td style="text-align: right;">8,108,834.97 ns</td>
+<td style="text-align: right;">226,603,200.0 ns</td>
+</tr>
+<tr>
+<td>OddEvenCompileTime</td>
+<td>10000</td>
+<td style="text-align: right;">107,086,767.0 ns</td>
+<td style="text-align: right;">4,132,450.94 ns</td>
+<td style="text-align: right;">12,184,624.84 ns</td>
+<td style="text-align: right;">104,965,450.0 ns</td>
+</tr>
+<tr>
+<td>GnomeRunTime</td>
+<td>10000</td>
+<td style="text-align: right;">214,599,905.3 ns</td>
+<td style="text-align: right;">5,444,946.67 ns</td>
+<td style="text-align: right;">14,720,729.93 ns</td>
+<td style="text-align: right;">211,160,850.0 ns</td>
+</tr>
+<tr>
+<td>GnomeCompileTime</td>
+<td>10000</td>
+<td style="text-align: right;">68,435,492.0 ns</td>
+<td style="text-align: right;">2,968,660.29 ns</td>
+<td style="text-align: right;">8,753,161.86 ns</td>
+<td style="text-align: right;">64,460,350.0 ns</td>
+</tr>
+<tr>
+<td>CombRunTime</td>
+<td>10000</td>
+<td style="text-align: right;">2,505,591.0 ns</td>
+<td style="text-align: right;">238,904.20 ns</td>
+<td style="text-align: right;">704,414.42 ns</td>
+<td style="text-align: right;">2,197,600.0 ns</td>
+</tr>
+<tr>
+<td>CombCompileTime</td>
+<td>10000</td>
+<td style="text-align: right;">814,242.3 ns</td>
+<td style="text-align: right;">39,446.13 ns</td>
+<td style="text-align: right;">114,440.38 ns</td>
+<td style="text-align: right;">756,400.0 ns</td>
+</tr>
+<tr>
+<td>ShellRunTime</td>
+<td>10000</td>
+<td style="text-align: right;">1,904,678.1 ns</td>
+<td style="text-align: right;">116,314.65 ns</td>
+<td style="text-align: right;">335,594.36 ns</td>
+<td style="text-align: right;">1,860,500.0 ns</td>
+</tr>
+<tr>
+<td>ShellCompileTime</td>
+<td>10000</td>
+<td style="text-align: right;">918,010.3 ns</td>
+<td style="text-align: right;">41,114.40 ns</td>
+<td style="text-align: right;">119,280.34 ns</td>
+<td style="text-align: right;">919,100.0 ns</td>
+</tr>
+<tr>
+<td>CocktailRunTime</td>
+<td>10000</td>
+<td style="text-align: right;">235,205,400.0 ns</td>
+<td style="text-align: right;">7,741,605.68 ns</td>
+<td style="text-align: right;">21,835,336.18 ns</td>
+<td style="text-align: right;">225,081,500.0 ns</td>
+</tr>
+<tr>
+<td>CocktailCompileTime</td>
+<td>10000</td>
+<td style="text-align: right;">109,793,525.6 ns</td>
+<td style="text-align: right;">1,968,058.18 ns</td>
+<td style="text-align: right;">3,548,814.85 ns</td>
+<td style="text-align: right;">108,680,050.0 ns</td>
+</tr>
+<tr>
+<td>CycleRunTime</td>
+<td>10000</td>
+<td style="text-align: right;">758,220,283.0 ns</td>
+<td style="text-align: right;">36,542,340.18 ns</td>
+<td style="text-align: right;">107,745,914.50 ns</td>
+<td style="text-align: right;">713,811,150.0 ns</td>
+</tr>
+<tr>
+<td>CycleCompileTime</td>
+<td>10000</td>
+<td style="text-align: right;">240,248,746.7 ns</td>
+<td style="text-align: right;">4,460,244.43 ns</td>
+<td style="text-align: right;">4,172,115.41 ns</td>
+<td style="text-align: right;">238,933,300.0 ns</td>
+</tr>
+<tr>
+<td>PancakeRunTime</td>
+<td>10000</td>
+<td style="text-align: right;">212,381,853.3 ns</td>
+<td style="text-align: right;">4,019,236.09 ns</td>
+<td style="text-align: right;">3,759,595.93 ns</td>
+<td style="text-align: right;">211,954,100.0 ns</td>
+</tr>
+<tr>
+<td>PancakeCompileTime</td>
+<td>10000</td>
+<td style="text-align: right;">46,376,547.6 ns</td>
+<td style="text-align: right;">885,219.00 ns</td>
+<td style="text-align: right;">1,053,790.25 ns</td>
+<td style="text-align: right;">46,107,800.0 ns</td>
+</tr>
+<tr>
+<td>StoogeRunTime</td>
+<td>10000</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>StoogeCompileTime</td>
+<td>10000</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>SlowRunTime</td>
+<td>10000</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>SlowCompileTime</td>
+<td>10000</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>BogoRunTime</td>
+<td>10000</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>BogoCompileTime</td>
+<td>10000</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+</tr>
+</tbody>
+</table>
+<p>Benchmarks with issues:
+Sort_Benchmarks.SlowRunTime: Job-APNGAA(InvocationCount=1, UnrollFactor=1) [N=1000]
+Sort_Benchmarks.SlowCompileTime: Job-APNGAA(InvocationCount=1, UnrollFactor=1) [N=1000]
+Sort_Benchmarks.BogoRunTime: Job-APNGAA(InvocationCount=1, UnrollFactor=1) [N=1000]
+Sort_Benchmarks.BogoCompileTime: Job-APNGAA(InvocationCount=1, UnrollFactor=1) [N=1000]
+Sort_Benchmarks.StoogeRunTime: Job-APNGAA(InvocationCount=1, UnrollFactor=1) [N=10000]
+Sort_Benchmarks.StoogeCompileTime: Job-APNGAA(InvocationCount=1, UnrollFactor=1) [N=10000]
+Sort_Benchmarks.SlowRunTime: Job-APNGAA(InvocationCount=1, UnrollFactor=1) [N=10000]
+Sort_Benchmarks.SlowCompileTime: Job-APNGAA(InvocationCount=1, UnrollFactor=1) [N=10000]
+Sort_Benchmarks.BogoRunTime: Job-APNGAA(InvocationCount=1, UnrollFactor=1) [N=10000]
+Sort_Benchmarks.BogoCompileTime: Job-APNGAA(InvocationCount=1, UnrollFactor=1) [N=10000]</p>
+<h1 id="data-structures">Data Structures</h1>
+<p>The source code for all becnhmarks are in <a href="https://github.com/ZacharyPatten/Towel/tree/master/Tools/Towel_Benchmarking">Tools/Towel.Benchmarking</a>.</p>
+<pre><code class="lang-ini">
+BenchmarkDotNet=v0.12.1, OS=Windows 10.0.18363.1316 (1909/November2018Update/19H2)
+Intel Core i7-4790K CPU 4.00GHz (Haswell), 1 CPU, 8 logical and 4 physical cores
+.NET Core SDK=5.0.102
+  [Host]     : .NET Core 5.0.2 (CoreCLR 5.0.220.61120, CoreFX 5.0.220.61120), X64 RyuJIT
+  DefaultJob : .NET Core 5.0.2 (CoreCLR 5.0.220.61120, CoreFX 5.0.220.61120), X64 RyuJIT
+
+
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>RandomTestData</th>
+<th style="text-align: right;">Mean</th>
+<th style="text-align: right;">Error</th>
+<th style="text-align: right;">StdDev</th>
+<th style="text-align: right;">Median</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ListArray_Add</strong></td>
+<td><strong>Person[100000]</strong></td>
+<td style="text-align: right;"><strong>2,285,342.4 ns</strong></td>
+<td style="text-align: right;"><strong>42,361.55 ns</strong></td>
+<td style="text-align: right;"><strong>79,565.25 ns</strong></td>
+<td style="text-align: right;"><strong>2,281,276.4 ns</strong></td>
+</tr>
+<tr>
+<td>ListArray_AddWithCapacity</td>
+<td>Person[100000]</td>
+<td style="text-align: right;">1,795,587.4 ns</td>
+<td style="text-align: right;">34,903.12 ns</td>
+<td style="text-align: right;">59,268.15 ns</td>
+<td style="text-align: right;">1,801,331.8 ns</td>
+</tr>
+<tr>
+<td>Add</td>
+<td>Person[100000]</td>
+<td style="text-align: right;">2,594,485.3 ns</td>
+<td style="text-align: right;">51,616.89 ns</td>
+<td style="text-align: right;">107,743.67 ns</td>
+<td style="text-align: right;">2,593,817.6 ns</td>
+</tr>
+<tr>
+<td>QueueArray_Enqueue</td>
+<td>Person[100000]</td>
+<td style="text-align: right;">3,101,683.3 ns</td>
+<td style="text-align: right;">61,525.58 ns</td>
+<td style="text-align: right;">166,337.97 ns</td>
+<td style="text-align: right;">3,019,151.6 ns</td>
+</tr>
+<tr>
+<td>QueueArray_EnqueueWithCapacity</td>
+<td>Person[100000]</td>
+<td style="text-align: right;">2,988,840.4 ns</td>
+<td style="text-align: right;">38,027.82 ns</td>
+<td style="text-align: right;">35,571.25 ns</td>
+<td style="text-align: right;">2,994,517.0 ns</td>
+</tr>
+<tr>
+<td>QueueLinked_Enqueue</td>
+<td>Person[100000]</td>
+<td style="text-align: right;">2,153,740.8 ns</td>
+<td style="text-align: right;">30,382.07 ns</td>
+<td style="text-align: right;">28,419.41 ns</td>
+<td style="text-align: right;">2,146,433.6 ns</td>
+</tr>
+<tr>
+<td>StackArray_Push</td>
+<td>Person[100000]</td>
+<td style="text-align: right;">1,919,690.6 ns</td>
+<td style="text-align: right;">15,790.45 ns</td>
+<td style="text-align: right;">12,328.15 ns</td>
+<td style="text-align: right;">1,920,148.0 ns</td>
+</tr>
+<tr>
+<td>StackArray_PushWithCapacity</td>
+<td>Person[100000]</td>
+<td style="text-align: right;">1,581,830.9 ns</td>
+<td style="text-align: right;">30,551.52 ns</td>
+<td style="text-align: right;">84,658.11 ns</td>
+<td style="text-align: right;">1,563,808.6 ns</td>
+</tr>
+<tr>
+<td>StackLinked_Push</td>
+<td>Person[100000]</td>
+<td style="text-align: right;">2,104,717.2 ns</td>
+<td style="text-align: right;">41,841.10 ns</td>
+<td style="text-align: right;">51,384.63 ns</td>
+<td style="text-align: right;">2,110,622.3 ns</td>
+</tr>
+<tr>
+<td>AvlTreeLinked_AddRunTime</td>
+<td>Person[100000]</td>
+<td style="text-align: right;">239,457,861.9 ns</td>
+<td style="text-align: right;">4,788,234.86 ns</td>
+<td style="text-align: right;">11,001,765.87 ns</td>
+<td style="text-align: right;">238,182,033.3 ns</td>
+</tr>
+<tr>
+<td>AvlTreeLinked_AddCompileTime</td>
+<td>Person[100000]</td>
+<td style="text-align: right;">241,620,916.3 ns</td>
+<td style="text-align: right;">4,833,643.96 ns</td>
+<td style="text-align: right;">14,252,108.27 ns</td>
+<td style="text-align: right;">236,429,883.3 ns</td>
+</tr>
+<tr>
+<td>RedBlackTree_AddRunTime</td>
+<td>Person[100000]</td>
+<td style="text-align: right;">235,861,633.3 ns</td>
+<td style="text-align: right;">4,597,248.50 ns</td>
+<td style="text-align: right;">5,109,829.52 ns</td>
+<td style="text-align: right;">235,987,500.0 ns</td>
+</tr>
+<tr>
+<td>RedBlackTree_AddCompileTime</td>
+<td>Person[100000]</td>
+<td style="text-align: right;">242,473,541.6 ns</td>
+<td style="text-align: right;">5,284,431.55 ns</td>
+<td style="text-align: right;">15,331,094.12 ns</td>
+<td style="text-align: right;">241,241,733.3 ns</td>
+</tr>
+<tr>
+<td>SetHashLinked_AddRunTime</td>
+<td>Person[100000]</td>
+<td style="text-align: right;">40,493,740.2 ns</td>
+<td style="text-align: right;">906,044.37 ns</td>
+<td style="text-align: right;">2,657,271.31 ns</td>
+<td style="text-align: right;">39,780,666.7 ns</td>
+</tr>
+<tr>
+<td>SetHashLinked_AddCompileTime</td>
+<td>Person[100000]</td>
+<td style="text-align: right;">37,621,726.5 ns</td>
+<td style="text-align: right;">745,015.58 ns</td>
+<td style="text-align: right;">1,504,968.22 ns</td>
+<td style="text-align: right;">37,160,846.7 ns</td>
+</tr>
+<tr>
+<td><strong>ListArray_Add</strong></td>
+<td><strong>Person[100]</strong></td>
+<td style="text-align: right;"><strong>1,034.9 ns</strong></td>
+<td style="text-align: right;"><strong>8.56 ns</strong></td>
+<td style="text-align: right;"><strong>7.59 ns</strong></td>
+<td style="text-align: right;"><strong>1,037.1 ns</strong></td>
+</tr>
+<tr>
+<td>ListArray_AddWithCapacity</td>
+<td>Person[100]</td>
+<td style="text-align: right;">786.2 ns</td>
+<td style="text-align: right;">12.98 ns</td>
+<td style="text-align: right;">16.88 ns</td>
+<td style="text-align: right;">777.7 ns</td>
+</tr>
+<tr>
+<td>Add</td>
+<td>Person[100]</td>
+<td style="text-align: right;">1,371.1 ns</td>
+<td style="text-align: right;">25.68 ns</td>
+<td style="text-align: right;">44.97 ns</td>
+<td style="text-align: right;">1,349.6 ns</td>
+</tr>
+<tr>
+<td>QueueArray_Enqueue</td>
+<td>Person[100]</td>
+<td style="text-align: right;">1,226.9 ns</td>
+<td style="text-align: right;">24.39 ns</td>
+<td style="text-align: right;">42.72 ns</td>
+<td style="text-align: right;">1,226.6 ns</td>
+</tr>
+<tr>
+<td>QueueArray_EnqueueWithCapacity</td>
+<td>Person[100]</td>
+<td style="text-align: right;">1,066.4 ns</td>
+<td style="text-align: right;">16.61 ns</td>
+<td style="text-align: right;">13.87 ns</td>
+<td style="text-align: right;">1,073.9 ns</td>
+</tr>
+<tr>
+<td>QueueLinked_Enqueue</td>
+<td>Person[100]</td>
+<td style="text-align: right;">1,087.6 ns</td>
+<td style="text-align: right;">20.60 ns</td>
+<td style="text-align: right;">19.27 ns</td>
+<td style="text-align: right;">1,085.8 ns</td>
+</tr>
+<tr>
+<td>StackArray_Push</td>
+<td>Person[100]</td>
+<td style="text-align: right;">846.5 ns</td>
+<td style="text-align: right;">16.88 ns</td>
+<td style="text-align: right;">42.36 ns</td>
+<td style="text-align: right;">855.0 ns</td>
+</tr>
+<tr>
+<td>StackArray_PushWithCapacity</td>
+<td>Person[100]</td>
+<td style="text-align: right;">625.1 ns</td>
+<td style="text-align: right;">10.95 ns</td>
+<td style="text-align: right;">13.45 ns</td>
+<td style="text-align: right;">619.8 ns</td>
+</tr>
+<tr>
+<td>StackLinked_Push</td>
+<td>Person[100]</td>
+<td style="text-align: right;">1,084.5 ns</td>
+<td style="text-align: right;">19.10 ns</td>
+<td style="text-align: right;">17.86 ns</td>
+<td style="text-align: right;">1,076.0 ns</td>
+</tr>
+<tr>
+<td>AvlTreeLinked_AddRunTime</td>
+<td>Person[100]</td>
+<td style="text-align: right;">55,723.6 ns</td>
+<td style="text-align: right;">790.78 ns</td>
+<td style="text-align: right;">660.34 ns</td>
+<td style="text-align: right;">55,491.1 ns</td>
+</tr>
+<tr>
+<td>AvlTreeLinked_AddCompileTime</td>
+<td>Person[100]</td>
+<td style="text-align: right;">57,279.3 ns</td>
+<td style="text-align: right;">1,093.51 ns</td>
+<td style="text-align: right;">1,421.87 ns</td>
+<td style="text-align: right;">56,842.8 ns</td>
+</tr>
+<tr>
+<td>RedBlackTree_AddRunTime</td>
+<td>Person[100]</td>
+<td style="text-align: right;">64,029.5 ns</td>
+<td style="text-align: right;">1,017.33 ns</td>
+<td style="text-align: right;">849.52 ns</td>
+<td style="text-align: right;">64,057.7 ns</td>
+</tr>
+<tr>
+<td>RedBlackTree_AddCompileTime</td>
+<td>Person[100]</td>
+<td style="text-align: right;">65,265.7 ns</td>
+<td style="text-align: right;">983.14 ns</td>
+<td style="text-align: right;">871.53 ns</td>
+<td style="text-align: right;">65,564.8 ns</td>
+</tr>
+<tr>
+<td>SetHashLinked_AddRunTime</td>
+<td>Person[100]</td>
+<td style="text-align: right;">7,091.6 ns</td>
+<td style="text-align: right;">140.65 ns</td>
+<td style="text-align: right;">161.97 ns</td>
+<td style="text-align: right;">7,043.2 ns</td>
+</tr>
+<tr>
+<td>SetHashLinked_AddCompileTime</td>
+<td>Person[100]</td>
+<td style="text-align: right;">5,874.2 ns</td>
+<td style="text-align: right;">111.43 ns</td>
+<td style="text-align: right;">114.43 ns</td>
+<td style="text-align: right;">5,854.4 ns</td>
+</tr>
+</tbody>
+</table>
+<h1 id="random">Random</h1>
+<p>The source code for all becnhmarks are in <a href="https://github.com/ZacharyPatten/Towel/tree/master/Tools/Towel_Benchmarking">Tools/Towel.Benchmarking</a>.</p>
+<pre><code class="lang-ini">
+BenchmarkDotNet=v0.12.1, OS=Windows 10.0.18363.1316 (1909/November2018Update/19H2)
+Intel Core i7-4790K CPU 4.00GHz (Haswell), 1 CPU, 8 logical and 4 physical cores
+.NET Core SDK=5.0.102
+  [Host]     : .NET Core 5.0.2 (CoreCLR 5.0.220.61120, CoreFX 5.0.220.61120), X64 RyuJIT
+  Job-APNGAA : .NET Core 5.0.2 (CoreCLR 5.0.220.61120, CoreFX 5.0.220.61120), X64 RyuJIT
+
+InvocationCount=1  UnrollFactor=1  
+
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>N</th>
+<th style="text-align: right;">Mean</th>
+<th style="text-align: right;">Error</th>
+<th style="text-align: right;">StdDev</th>
+<th style="text-align: right;">Median</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Next_IEnumerable_TotalWeight</strong></td>
+<td><strong>10</strong></td>
+<td style="text-align: right;"><strong>2.955 μs</strong></td>
+<td style="text-align: right;"><strong>0.4523 μs</strong></td>
+<td style="text-align: right;"><strong>1.2380 μs</strong></td>
+<td style="text-align: right;"><strong>2.500 μs</strong></td>
+</tr>
+<tr>
+<td>Next_IEnumerable</td>
+<td>10</td>
+<td style="text-align: right;">2.613 μs</td>
+<td style="text-align: right;">0.1271 μs</td>
+<td style="text-align: right;">0.3392 μs</td>
+<td style="text-align: right;">2.500 μs</td>
+</tr>
+<tr>
+<td><strong>Next_IEnumerable_TotalWeight</strong></td>
+<td><strong>100</strong></td>
+<td style="text-align: right;"><strong>3.359 μs</strong></td>
+<td style="text-align: right;"><strong>0.1351 μs</strong></td>
+<td style="text-align: right;"><strong>0.3583 μs</strong></td>
+<td style="text-align: right;"><strong>3.300 μs</strong></td>
+</tr>
+<tr>
+<td>Next_IEnumerable</td>
+<td>100</td>
+<td style="text-align: right;">6.860 μs</td>
+<td style="text-align: right;">0.5139 μs</td>
+<td style="text-align: right;">1.3980 μs</td>
+<td style="text-align: right;">6.750 μs</td>
+</tr>
+<tr>
+<td><strong>Next_IEnumerable_TotalWeight</strong></td>
+<td><strong>1000</strong></td>
+<td style="text-align: right;"><strong>17.353 μs</strong></td>
+<td style="text-align: right;"><strong>1.3569 μs</strong></td>
+<td style="text-align: right;"><strong>3.8933 μs</strong></td>
+<td style="text-align: right;"><strong>15.200 μs</strong></td>
+</tr>
+<tr>
+<td>Next_IEnumerable</td>
+<td>1000</td>
+<td style="text-align: right;">32.282 μs</td>
+<td style="text-align: right;">1.2775 μs</td>
+<td style="text-align: right;">3.7266 μs</td>
+<td style="text-align: right;">30.850 μs</td>
+</tr>
+<tr>
+<td><strong>Next_IEnumerable_TotalWeight</strong></td>
+<td><strong>10000</strong></td>
+<td style="text-align: right;"><strong>137.651 μs</strong></td>
+<td style="text-align: right;"><strong>5.6417 μs</strong></td>
+<td style="text-align: right;"><strong>16.4572 μs</strong></td>
+<td style="text-align: right;"><strong>129.500 μs</strong></td>
+</tr>
+<tr>
+<td>Next_IEnumerable</td>
+<td>10000</td>
+<td style="text-align: right;">279.346 μs</td>
+<td style="text-align: right;">5.5487 μs</td>
+<td style="text-align: right;">9.1166 μs</td>
+<td style="text-align: right;">276.200 μs</td>
+</tr>
+<tr>
+<td><strong>Next_IEnumerable_TotalWeight</strong></td>
+<td><strong>100000</strong></td>
+<td style="text-align: right;"><strong>1,340.264 μs</strong></td>
+<td style="text-align: right;"><strong>26.5897 μs</strong></td>
+<td style="text-align: right;"><strong>73.6799 μs</strong></td>
+<td style="text-align: right;"><strong>1,327.000 μs</strong></td>
+</tr>
+<tr>
+<td>Next_IEnumerable</td>
+<td>100000</td>
+<td style="text-align: right;">2,750.768 μs</td>
+<td style="text-align: right;">105.2400 μs</td>
+<td style="text-align: right;">305.3204 μs</td>
+<td style="text-align: right;">2,788.600 μs</td>
+</tr>
+</tbody>
+</table>
+<h1 id="numeric-to-english-words">[Numeric] To English Words</h1>
+<p>The source code for all becnhmarks are in <a href="https://github.com/ZacharyPatten/Towel/tree/master/Tools/Towel_Benchmarking">Tools/Towel.Benchmarking</a>.</p>
+<pre><code class="lang-ini">
+BenchmarkDotNet=v0.12.1, OS=Windows 10.0.18363.1316 (1909/November2018Update/19H2)
+Intel Core i7-4790K CPU 4.00GHz (Haswell), 1 CPU, 8 logical and 4 physical cores
+.NET Core SDK=5.0.102
+  [Host]     : .NET Core 5.0.2 (CoreCLR 5.0.220.61120, CoreFX 5.0.220.61120), X64 RyuJIT
+  DefaultJob : .NET Core 5.0.2 (CoreCLR 5.0.220.61120, CoreFX 5.0.220.61120), X64 RyuJIT
+
+
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Range</th>
+<th style="text-align: right;">Mean</th>
+<th style="text-align: right;">Error</th>
+<th style="text-align: right;">StdDev</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Decimal_ToEnglishWords</strong></td>
+<td><strong>10</strong></td>
+<td style="text-align: right;"><strong>77.13 ms</strong></td>
+<td style="text-align: right;"><strong>1.489 ms</strong></td>
+<td style="text-align: right;"><strong>1.529 ms</strong></td>
+</tr>
+<tr>
+<td><strong>Decimal_ToEnglishWords</strong></td>
+<td><strong>100</strong></td>
+<td style="text-align: right;"><strong>74.62 ms</strong></td>
+<td style="text-align: right;"><strong>0.770 ms</strong></td>
+<td style="text-align: right;"><strong>0.683 ms</strong></td>
+</tr>
+<tr>
+<td><strong>Decimal_ToEnglishWords</strong></td>
+<td><strong>1000</strong></td>
+<td style="text-align: right;"><strong>70.74 ms</strong></td>
+<td style="text-align: right;"><strong>1.397 ms</strong></td>
+<td style="text-align: right;"><strong>2.334 ms</strong></td>
+</tr>
+<tr>
+<td><strong>Decimal_ToEnglishWords</strong></td>
+<td><strong>10000</strong></td>
+<td style="text-align: right;"><strong>71.34 ms</strong></td>
+<td style="text-align: right;"><strong>1.390 ms</strong></td>
+<td style="text-align: right;"><strong>1.487 ms</strong></td>
+</tr>
+<tr>
+<td><strong>Decimal_ToEnglishWords</strong></td>
+<td><strong>100000</strong></td>
+<td style="text-align: right;"><strong>69.86 ms</strong></td>
+<td style="text-align: right;"><strong>0.920 ms</strong></td>
+<td style="text-align: right;"><strong>0.815 ms</strong></td>
+</tr>
+</tbody>
+</table>
+<h1 id="permute">Permute</h1>
+<p>The source code for all becnhmarks are in <a href="https://github.com/ZacharyPatten/Towel/tree/master/Tools/Towel_Benchmarking">Tools/Towel.Benchmarking</a>.</p>
+<pre><code class="lang-ini">
+BenchmarkDotNet=v0.12.1, OS=Windows 10.0.18363.1316 (1909/November2018Update/19H2)
+Intel Core i7-4790K CPU 4.00GHz (Haswell), 1 CPU, 8 logical and 4 physical cores
+.NET Core SDK=5.0.102
+  [Host]     : .NET Core 5.0.2 (CoreCLR 5.0.220.61120, CoreFX 5.0.220.61120), X64 RyuJIT
+  Job-APNGAA : .NET Core 5.0.2 (CoreCLR 5.0.220.61120, CoreFX 5.0.220.61120), X64 RyuJIT
+
+InvocationCount=1  UnrollFactor=1  
+
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>N</th>
+<th style="text-align: right;">Mean</th>
+<th style="text-align: right;">Error</th>
+<th style="text-align: right;">StdDev</th>
+<th style="text-align: right;">Median</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Recursive</strong></td>
+<td><strong>1</strong></td>
+<td style="text-align: right;"><strong>358.1 ns</strong></td>
+<td style="text-align: right;"><strong>69.99 ns</strong></td>
+<td style="text-align: right;"><strong>198.54 ns</strong></td>
+<td style="text-align: right;"><strong>300.0 ns</strong></td>
+</tr>
+<tr>
+<td>Iterative</td>
+<td>1</td>
+<td style="text-align: right;">993.8 ns</td>
+<td style="text-align: right;">102.62 ns</td>
+<td style="text-align: right;">270.35 ns</td>
+<td style="text-align: right;">900.0 ns</td>
+</tr>
+<tr>
+<td>RecursiveStruct</td>
+<td>1</td>
+<td style="text-align: right;">225.8 ns</td>
+<td style="text-align: right;">28.02 ns</td>
+<td style="text-align: right;">77.65 ns</td>
+<td style="text-align: right;">200.0 ns</td>
+</tr>
+<tr>
+<td>IterativeStruct</td>
+<td>1</td>
+<td style="text-align: right;">1,223.3 ns</td>
+<td style="text-align: right;">199.19 ns</td>
+<td style="text-align: right;">555.27 ns</td>
+<td style="text-align: right;">1,000.0 ns</td>
+</tr>
+<tr>
+<td><strong>Recursive</strong></td>
+<td><strong>2</strong></td>
+<td style="text-align: right;"><strong>340.9 ns</strong></td>
+<td style="text-align: right;"><strong>20.94 ns</strong></td>
+<td style="text-align: right;"><strong>59.41 ns</strong></td>
+<td style="text-align: right;"><strong>300.0 ns</strong></td>
+</tr>
+<tr>
+<td>Iterative</td>
+<td>2</td>
+<td style="text-align: right;">1,002.3 ns</td>
+<td style="text-align: right;">51.98 ns</td>
+<td style="text-align: right;">141.40 ns</td>
+<td style="text-align: right;">1,000.0 ns</td>
+</tr>
+<tr>
+<td>RecursiveStruct</td>
+<td>2</td>
+<td style="text-align: right;">288.2 ns</td>
+<td style="text-align: right;">12.78 ns</td>
+<td style="text-align: right;">32.53 ns</td>
+<td style="text-align: right;">300.0 ns</td>
+</tr>
+<tr>
+<td>IterativeStruct</td>
+<td>2</td>
+<td style="text-align: right;">1,017.2 ns</td>
+<td style="text-align: right;">76.02 ns</td>
+<td style="text-align: right;">208.10 ns</td>
+<td style="text-align: right;">1,000.0 ns</td>
+</tr>
+<tr>
+<td><strong>Recursive</strong></td>
+<td><strong>3</strong></td>
+<td style="text-align: right;"><strong>500.0 ns</strong></td>
+<td style="text-align: right;"><strong>0.00 ns</strong></td>
+<td style="text-align: right;"><strong>0.00 ns</strong></td>
+<td style="text-align: right;"><strong>500.0 ns</strong></td>
+</tr>
+<tr>
+<td>Iterative</td>
+<td>3</td>
+<td style="text-align: right;">1,095.1 ns</td>
+<td style="text-align: right;">57.72 ns</td>
+<td style="text-align: right;">153.08 ns</td>
+<td style="text-align: right;">1,100.0 ns</td>
+</tr>
+<tr>
+<td>RecursiveStruct</td>
+<td>3</td>
+<td style="text-align: right;">504.1 ns</td>
+<td style="text-align: right;">39.66 ns</td>
+<td style="text-align: right;">115.69 ns</td>
+<td style="text-align: right;">500.0 ns</td>
+</tr>
+<tr>
+<td>IterativeStruct</td>
+<td>3</td>
+<td style="text-align: right;">998.9 ns</td>
+<td style="text-align: right;">61.19 ns</td>
+<td style="text-align: right;">169.55 ns</td>
+<td style="text-align: right;">900.0 ns</td>
+</tr>
+<tr>
+<td><strong>Recursive</strong></td>
+<td><strong>4</strong></td>
+<td style="text-align: right;"><strong>1,135.0 ns</strong></td>
+<td style="text-align: right;"><strong>26.57 ns</strong></td>
+<td style="text-align: right;"><strong>69.54 ns</strong></td>
+<td style="text-align: right;"><strong>1,100.0 ns</strong></td>
+</tr>
+<tr>
+<td>Iterative</td>
+<td>4</td>
+<td style="text-align: right;">1,331.4 ns</td>
+<td style="text-align: right;">64.10 ns</td>
+<td style="text-align: right;">174.40 ns</td>
+<td style="text-align: right;">1,300.0 ns</td>
+</tr>
+<tr>
+<td>RecursiveStruct</td>
+<td>4</td>
+<td style="text-align: right;">1,012.0 ns</td>
+<td style="text-align: right;">26.20 ns</td>
+<td style="text-align: right;">73.89 ns</td>
+<td style="text-align: right;">1,000.0 ns</td>
+</tr>
+<tr>
+<td>IterativeStruct</td>
+<td>4</td>
+<td style="text-align: right;">1,228.6 ns</td>
+<td style="text-align: right;">68.75 ns</td>
+<td style="text-align: right;">184.70 ns</td>
+<td style="text-align: right;">1,200.0 ns</td>
+</tr>
+<tr>
+<td><strong>Recursive</strong></td>
+<td><strong>5</strong></td>
+<td style="text-align: right;"><strong>5,224.7 ns</strong></td>
+<td style="text-align: right;"><strong>475.17 ns</strong></td>
+<td style="text-align: right;"><strong>1,378.56 ns</strong></td>
+<td style="text-align: right;"><strong>4,600.0 ns</strong></td>
+</tr>
+<tr>
+<td>Iterative</td>
+<td>5</td>
+<td style="text-align: right;">2,521.6 ns</td>
+<td style="text-align: right;">100.82 ns</td>
+<td style="text-align: right;">277.70 ns</td>
+<td style="text-align: right;">2,400.0 ns</td>
+</tr>
+<tr>
+<td>RecursiveStruct</td>
+<td>5</td>
+<td style="text-align: right;">3,968.5 ns</td>
+<td style="text-align: right;">79.23 ns</td>
+<td style="text-align: right;">111.07 ns</td>
+<td style="text-align: right;">3,950.0 ns</td>
+</tr>
+<tr>
+<td>IterativeStruct</td>
+<td>5</td>
+<td style="text-align: right;">2,430.7 ns</td>
+<td style="text-align: right;">177.90 ns</td>
+<td style="text-align: right;">489.98 ns</td>
+<td style="text-align: right;">2,200.0 ns</td>
+</tr>
+<tr>
+<td><strong>Recursive</strong></td>
+<td><strong>6</strong></td>
+<td style="text-align: right;"><strong>23,605.6 ns</strong></td>
+<td style="text-align: right;"><strong>374.48 ns</strong></td>
+<td style="text-align: right;"><strong>400.69 ns</strong></td>
+<td style="text-align: right;"><strong>23,700.0 ns</strong></td>
+</tr>
+<tr>
+<td>Iterative</td>
+<td>6</td>
+<td style="text-align: right;">9,040.0 ns</td>
+<td style="text-align: right;">175.20 ns</td>
+<td style="text-align: right;">163.88 ns</td>
+<td style="text-align: right;">9,000.0 ns</td>
+</tr>
+<tr>
+<td>RecursiveStruct</td>
+<td>6</td>
+<td style="text-align: right;">21,933.3 ns</td>
+<td style="text-align: right;">300.80 ns</td>
+<td style="text-align: right;">234.84 ns</td>
+<td style="text-align: right;">22,000.0 ns</td>
+</tr>
+<tr>
+<td>IterativeStruct</td>
+<td>6</td>
+<td style="text-align: right;">8,258.1 ns</td>
+<td style="text-align: right;">442.22 ns</td>
+<td style="text-align: right;">1,254.50 ns</td>
+<td style="text-align: right;">7,600.0 ns</td>
+</tr>
+<tr>
+<td><strong>Recursive</strong></td>
+<td><strong>7</strong></td>
+<td style="text-align: right;"><strong>172,625.0 ns</strong></td>
+<td style="text-align: right;"><strong>3,944.54 ns</strong></td>
+<td style="text-align: right;"><strong>11,125.64 ns</strong></td>
+<td style="text-align: right;"><strong>170,200.0 ns</strong></td>
+</tr>
+<tr>
+<td>Iterative</td>
+<td>7</td>
+<td style="text-align: right;">61,489.9 ns</td>
+<td style="text-align: right;">2,735.61 ns</td>
+<td style="text-align: right;">8,023.07 ns</td>
+<td style="text-align: right;">57,000.0 ns</td>
+</tr>
+<tr>
+<td>RecursiveStruct</td>
+<td>7</td>
+<td style="text-align: right;">170,232.2 ns</td>
+<td style="text-align: right;">3,834.91 ns</td>
+<td style="text-align: right;">10,690.19 ns</td>
+<td style="text-align: right;">167,650.0 ns</td>
+</tr>
+<tr>
+<td>IterativeStruct</td>
+<td>7</td>
+<td style="text-align: right;">54,806.2 ns</td>
+<td style="text-align: right;">3,256.01 ns</td>
+<td style="text-align: right;">9,446.27 ns</td>
+<td style="text-align: right;">49,700.0 ns</td>
+</tr>
+<tr>
+<td><strong>Recursive</strong></td>
+<td><strong>8</strong></td>
+<td style="text-align: right;"><strong>1,368,048.4 ns</strong></td>
+<td style="text-align: right;"><strong>27,259.23 ns</strong></td>
+<td style="text-align: right;"><strong>62,083.05 ns</strong></td>
+<td style="text-align: right;"><strong>1,357,650.0 ns</strong></td>
+</tr>
+<tr>
+<td>Iterative</td>
+<td>8</td>
+<td style="text-align: right;">482,213.5 ns</td>
+<td style="text-align: right;">13,317.16 ns</td>
+<td style="text-align: right;">38,423.06 ns</td>
+<td style="text-align: right;">470,550.0 ns</td>
+</tr>
+<tr>
+<td>RecursiveStruct</td>
+<td>8</td>
+<td style="text-align: right;">1,166,740.7 ns</td>
+<td style="text-align: right;">148,354.22 ns</td>
+<td style="text-align: right;">403,608.59 ns</td>
+<td style="text-align: right;">1,337,400.0 ns</td>
+</tr>
+<tr>
+<td>IterativeStruct</td>
+<td>8</td>
+<td style="text-align: right;">403,142.6 ns</td>
+<td style="text-align: right;">10,662.34 ns</td>
+<td style="text-align: right;">30,420.26 ns</td>
+<td style="text-align: right;">395,850.0 ns</td>
+</tr>
+<tr>
+<td><strong>Recursive</strong></td>
+<td><strong>9</strong></td>
+<td style="text-align: right;"><strong>4,859,093.1 ns</strong></td>
+<td style="text-align: right;"><strong>160,649.14 ns</strong></td>
+<td style="text-align: right;"><strong>439,774.42 ns</strong></td>
+<td style="text-align: right;"><strong>4,754,100.0 ns</strong></td>
+</tr>
+<tr>
+<td>Iterative</td>
+<td>9</td>
+<td style="text-align: right;">3,200,890.0 ns</td>
+<td style="text-align: right;">403,954.28 ns</td>
+<td style="text-align: right;">1,191,068.31 ns</td>
+<td style="text-align: right;">3,939,250.0 ns</td>
+</tr>
+<tr>
+<td>RecursiveStruct</td>
+<td>9</td>
+<td style="text-align: right;">4,614,089.2 ns</td>
+<td style="text-align: right;">124,762.25 ns</td>
+<td style="text-align: right;">333,015.70 ns</td>
+<td style="text-align: right;">4,512,100.0 ns</td>
+</tr>
+<tr>
+<td>IterativeStruct</td>
+<td>9</td>
+<td style="text-align: right;">2,791,931.0 ns</td>
+<td style="text-align: right;">374,752.87 ns</td>
+<td style="text-align: right;">1,104,967.28 ns</td>
+<td style="text-align: right;">3,515,200.0 ns</td>
+</tr>
+<tr>
+<td><strong>Recursive</strong></td>
+<td><strong>10</strong></td>
+<td style="text-align: right;"><strong>45,860,687.0 ns</strong></td>
+<td style="text-align: right;"><strong>901,276.12 ns</strong></td>
+<td style="text-align: right;"><strong>1,139,825.71 ns</strong></td>
+<td style="text-align: right;"><strong>45,813,300.0 ns</strong></td>
+</tr>
+<tr>
+<td>Iterative</td>
+<td>10</td>
+<td style="text-align: right;">19,991,050.0 ns</td>
+<td style="text-align: right;">212,420.69 ns</td>
+<td style="text-align: right;">188,305.41 ns</td>
+<td style="text-align: right;">19,978,450.0 ns</td>
+</tr>
+<tr>
+<td>RecursiveStruct</td>
+<td>10</td>
+<td style="text-align: right;">45,028,071.4 ns</td>
+<td style="text-align: right;">892,680.58 ns</td>
+<td style="text-align: right;">791,338.08 ns</td>
+<td style="text-align: right;">44,858,450.0 ns</td>
+</tr>
+<tr>
+<td>IterativeStruct</td>
+<td>10</td>
+<td style="text-align: right;">14,261,908.0 ns</td>
+<td style="text-align: right;">268,746.43 ns</td>
+<td style="text-align: right;">358,768.77 ns</td>
+<td style="text-align: right;">14,139,200.0 ns</td>
+</tr>
+<tr>
+<td><strong>Recursive</strong></td>
+<td><strong>11</strong></td>
+<td style="text-align: right;"><strong>516,039,438.5 ns</strong></td>
+<td style="text-align: right;"><strong>6,893,440.60 ns</strong></td>
+<td style="text-align: right;"><strong>5,756,335.11 ns</strong></td>
+<td style="text-align: right;"><strong>515,851,100.0 ns</strong></td>
+</tr>
+<tr>
+<td>Iterative</td>
+<td>11</td>
+<td style="text-align: right;">209,356,640.0 ns</td>
+<td style="text-align: right;">4,137,867.27 ns</td>
+<td style="text-align: right;">3,870,563.61 ns</td>
+<td style="text-align: right;">209,218,000.0 ns</td>
+</tr>
+<tr>
+<td>RecursiveStruct</td>
+<td>11</td>
+<td style="text-align: right;">500,986,242.9 ns</td>
+<td style="text-align: right;">4,038,959.36 ns</td>
+<td style="text-align: right;">3,580,432.27 ns</td>
+<td style="text-align: right;">501,034,000.0 ns</td>
+</tr>
+<tr>
+<td>IterativeStruct</td>
+<td>11</td>
+<td style="text-align: right;">166,627,765.4 ns</td>
+<td style="text-align: right;">2,627,863.37 ns</td>
+<td style="text-align: right;">2,194,384.93 ns</td>
+<td style="text-align: right;">167,157,750.0 ns</td>
+</tr>
+<tr>
+<td><strong>Recursive</strong></td>
+<td><strong>12</strong></td>
+<td style="text-align: right;"><strong>6,262,202,978.6 ns</strong></td>
+<td style="text-align: right;"><strong>65,461,996.05 ns</strong></td>
+<td style="text-align: right;"><strong>58,030,354.41 ns</strong></td>
+<td style="text-align: right;"><strong>6,243,439,850.0 ns</strong></td>
+</tr>
+<tr>
+<td>Iterative</td>
+<td>12</td>
+<td style="text-align: right;">2,669,379,466.7 ns</td>
+<td style="text-align: right;">33,731,743.09 ns</td>
+<td style="text-align: right;">31,552,693.42 ns</td>
+<td style="text-align: right;">2,656,714,800.0 ns</td>
+</tr>
+<tr>
+<td>RecursiveStruct</td>
+<td>12</td>
+<td style="text-align: right;">6,014,308,915.4 ns</td>
+<td style="text-align: right;">70,148,580.89 ns</td>
+<td style="text-align: right;">58,577,242.09 ns</td>
+<td style="text-align: right;">5,983,791,600.0 ns</td>
+</tr>
+<tr>
+<td>IterativeStruct</td>
+<td>12</td>
+<td style="text-align: right;">2,100,294,175.0 ns</td>
+<td style="text-align: right;">40,906,356.70 ns</td>
+<td style="text-align: right;">40,175,511.95 ns</td>
+<td style="text-align: right;">2,111,504,950.0 ns</td>
+</tr>
+</tbody>
+</table>
+<h1 id="map-vs-dictionary-add">Map vs Dictionary (Add)</h1>
+<p>The source code for all becnhmarks are in <a href="https://github.com/ZacharyPatten/Towel/tree/master/Tools/Towel_Benchmarking">Tools/Towel.Benchmarking</a>.</p>
+<pre><code class="lang-ini">
+BenchmarkDotNet=v0.12.1, OS=Windows 10.0.18363.1316 (1909/November2018Update/19H2)
+Intel Core i7-4790K CPU 4.00GHz (Haswell), 1 CPU, 8 logical and 4 physical cores
+.NET Core SDK=5.0.102
+  [Host]     : .NET Core 5.0.2 (CoreCLR 5.0.220.61120, CoreFX 5.0.220.61120), X64 RyuJIT
+  DefaultJob : .NET Core 5.0.2 (CoreCLR 5.0.220.61120, CoreFX 5.0.220.61120), X64 RyuJIT
+
+
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>N</th>
+<th style="text-align: right;">Mean</th>
+<th style="text-align: right;">Error</th>
+<th style="text-align: right;">StdDev</th>
+<th style="text-align: right;">Median</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>MapDelegates</strong></td>
+<td><strong>10</strong></td>
+<td style="text-align: right;"><strong>3,092.2 ns</strong></td>
+<td style="text-align: right;"><strong>330.46 ns</strong></td>
+<td style="text-align: right;"><strong>921.19 ns</strong></td>
+<td style="text-align: right;"><strong>2,600.0 ns</strong></td>
+</tr>
+<tr>
+<td>MapStructs</td>
+<td>10</td>
+<td style="text-align: right;">504.4 ns</td>
+<td style="text-align: right;">9.97 ns</td>
+<td style="text-align: right;">21.45 ns</td>
+<td style="text-align: right;">499.1 ns</td>
+</tr>
+<tr>
+<td>Dictionary</td>
+<td>10</td>
+<td style="text-align: right;">237.0 ns</td>
+<td style="text-align: right;">3.14 ns</td>
+<td style="text-align: right;">2.79 ns</td>
+<td style="text-align: right;">236.7 ns</td>
+</tr>
+<tr>
+<td><strong>MapDelegates</strong></td>
+<td><strong>100</strong></td>
+<td style="text-align: right;"><strong>4,604.9 ns</strong></td>
+<td style="text-align: right;"><strong>65.06 ns</strong></td>
+<td style="text-align: right;"><strong>60.86 ns</strong></td>
+<td style="text-align: right;"><strong>4,576.3 ns</strong></td>
+</tr>
+<tr>
+<td>MapStructs</td>
+<td>100</td>
+<td style="text-align: right;">3,957.8 ns</td>
+<td style="text-align: right;">46.12 ns</td>
+<td style="text-align: right;">38.52 ns</td>
+<td style="text-align: right;">3,953.2 ns</td>
+</tr>
+<tr>
+<td>Dictionary</td>
+<td>100</td>
+<td style="text-align: right;">1,964.8 ns</td>
+<td style="text-align: right;">23.23 ns</td>
+<td style="text-align: right;">21.73 ns</td>
+<td style="text-align: right;">1,972.5 ns</td>
+</tr>
+<tr>
+<td><strong>MapDelegates</strong></td>
+<td><strong>1000</strong></td>
+<td style="text-align: right;"><strong>37,277.8 ns</strong></td>
+<td style="text-align: right;"><strong>464.88 ns</strong></td>
+<td style="text-align: right;"><strong>412.10 ns</strong></td>
+<td style="text-align: right;"><strong>37,306.8 ns</strong></td>
+</tr>
+<tr>
+<td>MapStructs</td>
+<td>1000</td>
+<td style="text-align: right;">31,133.2 ns</td>
+<td style="text-align: right;">331.05 ns</td>
+<td style="text-align: right;">293.47 ns</td>
+<td style="text-align: right;">31,141.7 ns</td>
+</tr>
+<tr>
+<td>Dictionary</td>
+<td>1000</td>
+<td style="text-align: right;">19,486.6 ns</td>
+<td style="text-align: right;">350.93 ns</td>
+<td style="text-align: right;">328.26 ns</td>
+<td style="text-align: right;">19,531.6 ns</td>
+</tr>
+<tr>
+<td><strong>MapDelegates</strong></td>
+<td><strong>10000</strong></td>
+<td style="text-align: right;"><strong>562,365.3 ns</strong></td>
+<td style="text-align: right;"><strong>6,455.37 ns</strong></td>
+<td style="text-align: right;"><strong>5,722.52 ns</strong></td>
+<td style="text-align: right;"><strong>560,431.8 ns</strong></td>
+</tr>
+<tr>
+<td>MapStructs</td>
+<td>10000</td>
+<td style="text-align: right;">519,934.0 ns</td>
+<td style="text-align: right;">6,130.20 ns</td>
+<td style="text-align: right;">4,786.05 ns</td>
+<td style="text-align: right;">518,642.8 ns</td>
+</tr>
+<tr>
+<td>Dictionary</td>
+<td>10000</td>
+<td style="text-align: right;">293,482.2 ns</td>
+<td style="text-align: right;">5,804.04 ns</td>
+<td style="text-align: right;">10,613.01 ns</td>
+<td style="text-align: right;">295,374.5 ns</td>
+</tr>
+</tbody>
+</table>
+<h1 id="map-vs-dictionary-look-up">Map vs Dictionary (Look Up)</h1>
+<p>The source code for all becnhmarks are in <a href="https://github.com/ZacharyPatten/Towel/tree/master/Tools/Towel_Benchmarking">Tools/Towel.Benchmarking</a>.</p>
+<pre><code class="lang-ini">
+BenchmarkDotNet=v0.12.1, OS=Windows 10.0.18363.1316 (1909/November2018Update/19H2)
+Intel Core i7-4790K CPU 4.00GHz (Haswell), 1 CPU, 8 logical and 4 physical cores
+.NET Core SDK=5.0.102
+  [Host]     : .NET Core 5.0.2 (CoreCLR 5.0.220.61120, CoreFX 5.0.220.61120), X64 RyuJIT
+  Job-APNGAA : .NET Core 5.0.2 (CoreCLR 5.0.220.61120, CoreFX 5.0.220.61120), X64 RyuJIT
+
+InvocationCount=1  UnrollFactor=1  
+
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>N</th>
+<th style="text-align: right;">Mean</th>
+<th style="text-align: right;">Error</th>
+<th style="text-align: right;">StdDev</th>
+<th style="text-align: right;">Median</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>MapDelegates</strong></td>
+<td><strong>10</strong></td>
+<td style="text-align: right;"><strong>701.1 ns</strong></td>
+<td style="text-align: right;"><strong>67.73 ns</strong></td>
+<td style="text-align: right;"><strong>194.33 ns</strong></td>
+<td style="text-align: right;"><strong>600.0 ns</strong></td>
+</tr>
+<tr>
+<td>MapStructs</td>
+<td>10</td>
+<td style="text-align: right;">376.8 ns</td>
+<td style="text-align: right;">48.88 ns</td>
+<td style="text-align: right;">140.25 ns</td>
+<td style="text-align: right;">300.0 ns</td>
+</tr>
+<tr>
+<td>Dictionary</td>
+<td>10</td>
+<td style="text-align: right;">311.2 ns</td>
+<td style="text-align: right;">46.41 ns</td>
+<td style="text-align: right;">135.37 ns</td>
+<td style="text-align: right;">300.0 ns</td>
+</tr>
+<tr>
+<td><strong>MapDelegates</strong></td>
+<td><strong>100</strong></td>
+<td style="text-align: right;"><strong>2,129.0 ns</strong></td>
+<td style="text-align: right;"><strong>45.35 ns</strong></td>
+<td style="text-align: right;"><strong>69.25 ns</strong></td>
+<td style="text-align: right;"><strong>2,100.0 ns</strong></td>
+</tr>
+<tr>
+<td>MapStructs</td>
+<td>100</td>
+<td style="text-align: right;">1,181.0 ns</td>
+<td style="text-align: right;">27.60 ns</td>
+<td style="text-align: right;">71.75 ns</td>
+<td style="text-align: right;">1,200.0 ns</td>
+</tr>
+<tr>
+<td>Dictionary</td>
+<td>100</td>
+<td style="text-align: right;">1,008.5 ns</td>
+<td style="text-align: right;">24.13 ns</td>
+<td style="text-align: right;">53.46 ns</td>
+<td style="text-align: right;">1,000.0 ns</td>
+</tr>
+<tr>
+<td><strong>MapDelegates</strong></td>
+<td><strong>1000</strong></td>
+<td style="text-align: right;"><strong>17,856.1 ns</strong></td>
+<td style="text-align: right;"><strong>356.19 ns</strong></td>
+<td style="text-align: right;"><strong>642.28 ns</strong></td>
+<td style="text-align: right;"><strong>17,900.0 ns</strong></td>
+</tr>
+<tr>
+<td>MapStructs</td>
+<td>1000</td>
+<td style="text-align: right;">10,033.8 ns</td>
+<td style="text-align: right;">194.09 ns</td>
+<td style="text-align: right;">497.52 ns</td>
+<td style="text-align: right;">9,900.0 ns</td>
+</tr>
+<tr>
+<td>Dictionary</td>
+<td>1000</td>
+<td style="text-align: right;">8,603.4 ns</td>
+<td style="text-align: right;">170.54 ns</td>
+<td style="text-align: right;">249.98 ns</td>
+<td style="text-align: right;">8,600.0 ns</td>
+</tr>
+<tr>
+<td><strong>MapDelegates</strong></td>
+<td><strong>10000</strong></td>
+<td style="text-align: right;"><strong>153,947.8 ns</strong></td>
+<td style="text-align: right;"><strong>11,714.71 ns</strong></td>
+<td style="text-align: right;"><strong>32,849.30 ns</strong></td>
+<td style="text-align: right;"><strong>165,350.0 ns</strong></td>
+</tr>
+<tr>
+<td>MapStructs</td>
+<td>10000</td>
+<td style="text-align: right;">99,233.3 ns</td>
+<td style="text-align: right;">5,356.85 ns</td>
+<td style="text-align: right;">14,664.30 ns</td>
+<td style="text-align: right;">97,400.0 ns</td>
+</tr>
+<tr>
+<td>Dictionary</td>
+<td>10000</td>
+<td style="text-align: right;">91,859.8 ns</td>
+<td style="text-align: right;">5,022.76 ns</td>
+<td style="text-align: right;">14,166.79 ns</td>
+<td style="text-align: right;">90,350.0 ns</td>
+</tr>
+</tbody>
+</table>
+<h1 id="span-vs-array-sorting">Span vs Array Sorting</h1>
+<p>The source code for all becnhmarks are in <a href="https://github.com/ZacharyPatten/Towel/tree/master/Tools/Towel_Benchmarking">Tools/Towel.Benchmarking</a>.</p>
+<pre><code class="lang-ini">
+BenchmarkDotNet=v0.12.1, OS=Windows 10.0.18363.1316 (1909/November2018Update/19H2)
+Intel Core i7-4790K CPU 4.00GHz (Haswell), 1 CPU, 8 logical and 4 physical cores
+.NET Core SDK=5.0.102
+  [Host]     : .NET Core 5.0.2 (CoreCLR 5.0.220.61120, CoreFX 5.0.220.61120), X64 RyuJIT
+  Job-APNGAA : .NET Core 5.0.2 (CoreCLR 5.0.220.61120, CoreFX 5.0.220.61120), X64 RyuJIT
+
+InvocationCount=1  UnrollFactor=1  
+
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>N</th>
+<th style="text-align: right;">Mean</th>
+<th style="text-align: right;">Error</th>
+<th style="text-align: right;">StdDev</th>
+<th style="text-align: right;">Median</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ArrayBubbleRunTime</strong></td>
+<td><strong>10</strong></td>
+<td style="text-align: right;"><strong>2,326.4 ns</strong></td>
+<td style="text-align: right;"><strong>242.09 ns</strong></td>
+<td style="text-align: right;"><strong>670.82 ns</strong></td>
+<td style="text-align: right;"><strong>1,950.0 ns</strong></td>
+</tr>
+<tr>
+<td>ArrayBubbleCompileTime</td>
+<td>10</td>
+<td style="text-align: right;">486.5 ns</td>
+<td style="text-align: right;">52.41 ns</td>
+<td style="text-align: right;">151.22 ns</td>
+<td style="text-align: right;">400.0 ns</td>
+</tr>
+<tr>
+<td>SpanBubbleRunTime</td>
+<td>10</td>
+<td style="text-align: right;">2,459.1 ns</td>
+<td style="text-align: right;">284.21 ns</td>
+<td style="text-align: right;">782.81 ns</td>
+<td style="text-align: right;">2,300.0 ns</td>
+</tr>
+<tr>
+<td>SpanBubbleCompileTime</td>
+<td>10</td>
+<td style="text-align: right;">429.2 ns</td>
+<td style="text-align: right;">27.85 ns</td>
+<td style="text-align: right;">77.17 ns</td>
+<td style="text-align: right;">400.0 ns</td>
+</tr>
+<tr>
+<td><strong>ArrayBubbleRunTime</strong></td>
+<td><strong>1000</strong></td>
+<td style="text-align: right;"><strong>5,761,469.0 ns</strong></td>
+<td style="text-align: right;"><strong>408,140.88 ns</strong></td>
+<td style="text-align: right;"><strong>1,203,412.61 ns</strong></td>
+<td style="text-align: right;"><strong>5,118,950.0 ns</strong></td>
+</tr>
+<tr>
+<td>ArrayBubbleCompileTime</td>
+<td>1000</td>
+<td style="text-align: right;">1,737,946.8 ns</td>
+<td style="text-align: right;">33,102.90 ns</td>
+<td style="text-align: right;">75,392.05 ns</td>
+<td style="text-align: right;">1,732,500.0 ns</td>
+</tr>
+<tr>
+<td>SpanBubbleRunTime</td>
+<td>1000</td>
+<td style="text-align: right;">6,457,400.0 ns</td>
+<td style="text-align: right;">103,753.51 ns</td>
+<td style="text-align: right;">91,974.79 ns</td>
+<td style="text-align: right;">6,480,850.0 ns</td>
+</tr>
+<tr>
+<td>SpanBubbleCompileTime</td>
+<td>1000</td>
+<td style="text-align: right;">1,555,967.7 ns</td>
+<td style="text-align: right;">31,003.93 ns</td>
+<td style="text-align: right;">72,470.69 ns</td>
+<td style="text-align: right;">1,539,400.0 ns</td>
+</tr>
+<tr>
+<td><strong>ArrayBubbleRunTime</strong></td>
+<td><strong>10000</strong></td>
+<td style="text-align: right;"><strong>518,694,480.0 ns</strong></td>
+<td style="text-align: right;"><strong>10,266,381.15 ns</strong></td>
+<td style="text-align: right;"><strong>9,603,179.29 ns</strong></td>
+<td style="text-align: right;"><strong>515,454,100.0 ns</strong></td>
+</tr>
+<tr>
+<td>ArrayBubbleCompileTime</td>
+<td>10000</td>
+<td style="text-align: right;">197,976,292.3 ns</td>
+<td style="text-align: right;">2,832,979.52 ns</td>
+<td style="text-align: right;">2,365,666.20 ns</td>
+<td style="text-align: right;">197,512,500.0 ns</td>
+</tr>
+<tr>
+<td>SpanBubbleRunTime</td>
+<td>10000</td>
+<td style="text-align: right;">444,006,056.7 ns</td>
+<td style="text-align: right;">8,585,645.59 ns</td>
+<td style="text-align: right;">8,031,018.21 ns</td>
+<td style="text-align: right;">442,002,450.0 ns</td>
+</tr>
+<tr>
+<td>SpanBubbleCompileTime</td>
+<td>10000</td>
+<td style="text-align: right;">177,006,850.0 ns</td>
+<td style="text-align: right;">3,511,711.01 ns</td>
+<td style="text-align: right;">3,284,856.66 ns</td>
+<td style="text-align: right;">176,566,250.0 ns</td>
+</tr>
+</tbody>
+</table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/ZacharyPatten/Towel/blob/master/Tools/docfx_project/articles/benchmarks.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
